@@ -1,0 +1,99 @@
+
+.container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(229, 225, 218);
+}
+
+.heading{
+    height: 20px;
+    width: 100%;
+    font-size: 20px;
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+}
+.cardContainer {
+    width: 50%;
+    height: 200px;
+    background-color: rgb(251, 249, 241);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+    border-radius: 20px;
+}
+.titleContainer{
+    width: 100%;
+    height: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.buttonContainer {
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: space-evenly;
+    align-content: center;
+}
+.searchContainer{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+.search{
+    width: 90%;
+    height: 60%;
+}
+.card-2-container{
+    width: 100%;
+    height: 100%;
+    padding: 5px;
+    margin: 10px auto;
+}
+
+.jokeButton {
+    width: 45%;
+}
+.likeButton {
+    width: 45%;
+}
+
+.jokeContainer {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    gap: 30px;
+    flex-direction: column;
+}
+
+.jokeText {
+    width: 100%;
+    height: 20px;
+    background-color: aqua;
+}
+.jokecard {
+    width: 100%;
+    background-color: aqua;
+}
+
+.jokeCardcontent{
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    overflow-y: auto;
+
+}
