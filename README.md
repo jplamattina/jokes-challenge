@@ -23,10 +23,8 @@ This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-opti
 ## Notes:
 
 
-```bash
 Regarding the permanent link, the idea was to generate a path to the joke that matched the ID in a search to the icanhazdadjoke.com API and that would give the user the link to share it with whoever he/she wanted, but due to lack of time, I couldn't get to the complete set up of the routes.
 
 when he/she is searching, the jokes are filtered. The remove button works. However, the deleted joke, in the search function is not deleted in real time but after the list is updated.
 
 CSS styling can be improved for a better UI. I decided on using Material-ui components to streamline some components like the "GET A JOKE" button. 
-```
