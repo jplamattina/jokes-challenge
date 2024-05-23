@@ -12,12 +12,11 @@ export default function Home() {
 	const [error, setError] = useState(null);
   const [searchJokes, setSearchJokes] = useState('');
   const [filteredJokes, setFilteredJokes] = useState([]);
+  const [jokeGenerated, setJokeGenerated] = useState(false); 
 
   const [listLikeJokes, setListLikeJokes] = useState([])
 
 	const getJoke = () => {
-		setError(null);
-
 		fetch('https://icanhazdadjoke.com/', {
 			headers: {
 				Accept: 'application/json',
@@ -28,18 +27,21 @@ export default function Home() {
 			})
 			.then((data) => {
 				setJoke(data.joke);
+        setJokeGenerated(true)
 			})
 			.catch((error) => {
+        setError(error)
 				throw new Error('Failed to fetch joke', error);
 			});
 	};
 
    const handleLikeJokes = () => {
+    if(jokeGenerated){
     if (!listLikeJokes.includes(joke)) {
       const updatedList = [...listLikeJokes, joke]
       setListLikeJokes(updatedList);
       localStorage.setItem('listLikeJokes', JSON.stringify(updatedList));
-    }
+    }}
   };
 
   const handleSearch = (event) => {
@@ -121,10 +123,6 @@ export default function Home() {
                         </li>
                       ))}
                   </ul>
-                  {/* <button className="copyButton"
-                    onClick={handleCopyClick}>
-                    {copySuccess ? 'Copied!' : 'Copy'}
-                  </button> */}
                 </>
               )}
               
