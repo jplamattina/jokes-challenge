@@ -1,10 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react';
-import Head from 'next/head';
 import './styles/App.css';
-import ButtonUsage from './components/GetButtonJoke';
 import GetButtonJoke from './components/GetButtonJoke';
-import CopyLinkButton from './components/CopyLinkButton';
 import LikJokesButton from './components/LikeJokes';
 import ButtonRemove from './components/ButtonRemove';
 import Link from 'next/link'
@@ -13,18 +10,13 @@ import SortList from './components/SortButton';
 export default function Home() {
 	const [joke, setJoke] = useState('');
 	const [error, setError] = useState(null);
-	const [copySuccess, setCopySuccess] = useState(false);
   const [searchJokes, setSearchJokes] = useState('');
   const [filteredJokes, setFilteredJokes] = useState([]);
-  const [change, setChange] = useState(false);
-  const [storage, setStorage] = useState([]);
+
   const [listLikeJokes, setListLikeJokes] = useState([])
 
 	const getJoke = () => {
-		// Reset any previous errors
 		setError(null);
-		// Reset the copy success message
-		setCopySuccess(false);
 
 		fetch('https://icanhazdadjoke.com/', {
 			headers: {
@@ -38,18 +30,11 @@ export default function Home() {
 				setJoke(data.joke);
 			})
 			.catch((error) => {
-				setError('Failed to fetch joke. Please try again later.');
 				throw new Error('Failed to fetch joke', error);
 			});
 	};
 
-	const handleCopyClick = () => {
-    navigator.clipboard.writeText(joke).then(() => {
-			setCopySuccess(true);
-		});
-	};
-
-  const handleLikeJokes = () => {
+   const handleLikeJokes = () => {
     if (!listLikeJokes.includes(joke)) {
       const updatedList = [...listLikeJokes, joke]
       setListLikeJokes(updatedList);
@@ -98,7 +83,6 @@ export default function Home() {
           </div>
           <div className='buttonContainer'>
             <GetButtonJoke onClick={getJoke}/>
-            {/* <CopyLinkButton onClick={handleCopyClick}/> */}
             <LikJokesButton onClick={handleLikeJokes}/>
           </div>
           <label>Search joke:</label>
